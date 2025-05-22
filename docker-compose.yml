@@ -1,0 +1,37 @@
+services:
+  db:
+    container_name: db
+    image: jh9710/lg_db_ver3
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: lg_twins
+      MYSQL_CHARSET: utf8mb4
+      MYSQL_COLLATION: utf8mb4_unicode_ci
+    networks:
+      - custom_net
+    ports:
+      - "3306:3306"
+
+  was:
+    container_name: was
+    image: jh9710/lg_was_ver3
+    restart: always
+    networks:
+      - custom_net
+    ports:
+      - "8081:80"
+
+  web:
+    container_name: web
+    image: jh9710/lg_web_ver3
+    restart: always
+    networks:
+      - custom_net
+    ports:
+      - "8088:80"
+
+networks:
+  custom_net:
+    driver: bridge
+
