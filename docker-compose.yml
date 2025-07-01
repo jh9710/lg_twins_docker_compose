@@ -1,7 +1,7 @@
 services:
   db:
     container_name: db
-    image: jh9710/lg_db_ver3
+    image: jh9710/lg_db_ver4
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root123
@@ -15,7 +15,7 @@ services:
 
   was:
     container_name: was
-    image: jh9710/lg_was_ver3
+    image: jh9710/lg_was_ver4
     restart: always
     networks:
       - custom_net
@@ -24,7 +24,7 @@ services:
 
   web:
     container_name: web
-    image: jh9710/lg_web_ver3
+    image: jh9710/lg_web_ver4
     restart: always
     networks:
       - custom_net
